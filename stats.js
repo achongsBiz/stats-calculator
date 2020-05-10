@@ -15,13 +15,22 @@ function validate(textInput) {
         return false;
     }
 
-    let numListInput = textInput.split(',');
+    if (textInput.includes(',') && textInput.length === 1) {
+        return false;
+    }
 
+    if (textInput.charAt(textInput.length-1) === ',' || textInput.charAt(0) === ',') {
+        return false;
+    }
+
+    let numListInput = textInput.split(',');
     for (let i=0; i <numListInput.length; i++) {
         if(isNaN(numListInput[i])) {
             return false;
         }
      }
+
+     
  
      return true;
 

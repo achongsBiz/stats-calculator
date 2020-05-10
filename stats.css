@@ -1,18 +1,28 @@
+* { font-family: sans-serif;}
+
+#main {
+    width:400px;
+    padding: 25px;
+}
+
 .divider {
-    border: 1px dashed green;
+    border: 1px dashed green
 }
 
 .goodResults {
-    color: green;
+    color: green
 }
 
 .badResults {
-    color:red;
+    color:red
 }
 
 .pad {
     background-color: black;
-    width: 500px;
+    width: 350px;
+    height: 350px;
     padding: 10px;
     margin: 10px;
+    position : relative;
+    overflow-y : auto
 }

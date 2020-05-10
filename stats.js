@@ -9,21 +9,46 @@ document.addEventListener( 'DOMContentLoaded',
     }
 )
 
+function validate(textInput) {
+
+    if (!textInput.includes(',')) {
+        return false;
+    }
+
+    let numListInput = textInput.split(',');
+
+    for (let i=0; i <numListInput.length; i++) {
+        if(isNaN(numListInput[i])) {
+            return false;
+        }
+     }
+ 
+     return true;
+
+}
+
 function flowControl() {
 
-    let numListInput = document.getElementById('num-input').value.split(',');
+    const numList = document.getElementById('num-input').value;
     const dataBlock = document.getElementById('data');
 
-    const dataArr = cleanData(numListInput);
-    dataArr.sort();
+    if(validate(numList)) {
 
-    let mean = calcMean(dataArr); 
-    let median = calcMedian(dataArr);
-    let sumDiffFromMean = calcSqDiffFromMean(dataArr, mean);
-    let standardDeviation = calcStandardDeviation(sumDiffFromMean, dataArr.length);
-    let resultBlock = createResultElement(mean, median, standardDeviation);
+        let numListInput = document.getElementById('num-input').value.split(',');
+        const dataArr = cleanData(numListInput);
+        dataArr.sort();
 
-    dataBlock.prepend(resultBlock);
+        let mean = calcMean(dataArr); 
+        let median = calcMedian(dataArr);
+        let sumDiffFromMean = calcSqDiffFromMean(dataArr, mean);
+        let standardDeviation = calcStandardDeviation(sumDiffFromMean, dataArr.length);
+        let resultBlock = createResultElement(mean, median, standardDeviation);
+        dataBlock.prepend(resultBlock);
+    }
+    else {
+        let errorBlock = createErrorElement();
+        dataBlock.prepend(errorBlock);
+    }
 }
 
 function cleanData(arr) {
@@ -92,8 +117,34 @@ function createResultElement(mean, median, standardDeviation) {
     return resultsBlock;
 }
 
+function createErrorElement() {
+
+    const errorBlock = document.createElement('div');
+    const result = document.createElement('p');
+    result.innerText = 'Invalid input, please enter the data in this format: 4,3.2,1.1,9';
+    errorBlock.appendChild(result);
+    const divider = document.createElement('hr');
+    divider.classList.add('divider');
+    errorBlock.appendChild(divider);
+    errorBlock.classList.add('badResults');
+
+    return errorBlock;
+}
+
 function clearPad() {
 
     const pad = document.getElementById('data');
     pad.innerHTML = '';
+}
+
+function validateData(arr) {
+
+    for (let i=0; i <arr.length; i++) {
+       if(isNaN(arr[i])) {
+           return true;
+       }
+    }
+
+    return false;
+
 }

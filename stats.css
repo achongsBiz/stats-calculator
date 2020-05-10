@@ -6,6 +6,10 @@
     color: green;
 }
 
+.badResults {
+    color:red;
+}
+
 .pad {
     background-color: black;
     width: 500px;

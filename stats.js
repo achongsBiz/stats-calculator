@@ -29,11 +29,7 @@ function validate(textInput) {
             return false;
         }
      }
-
-     
- 
      return true;
-
 }
 
 function flowControl() {
@@ -113,9 +109,9 @@ function createResultElement(mean, median, standardDeviation) {
 
     for (let i=0; i < elements.length; i++) {
 
-        const meanResults = document.createElement('p');
-        meanResults.innerText = elementsDesc[i] + elements[i].toFixed(3);
-        resultsBlock.appendChild(meanResults);
+        const result = document.createElement('p');
+        result.innerText = elementsDesc[i] + elements[i].toFixed(3);
+        resultsBlock.appendChild(result);
     }
 
     const divider = document.createElement('hr');

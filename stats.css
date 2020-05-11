@@ -1,8 +1,8 @@
 * { font-family: sans-serif;}
 
 #main {
-    width:400px;
-    padding: 25px;
+    width:500px;
+    padding: 10px;
 }
 
 .divider {
@@ -17,12 +17,20 @@
     color:red
 }
 
-.pad {
-    background-color: black;
+#input {
+    margin: 10px; 
+}
+
+#data {
+    border: 1px dashed gray;
     width: 350px;
     height: 350px;
     padding: 10px;
     margin: 10px;
     position : relative;
     overflow-y : auto
+}
+
+#footer {
+    font-size: 12px;
 }

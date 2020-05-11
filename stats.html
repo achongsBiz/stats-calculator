@@ -1,22 +1,30 @@
 <html>
     <head>
-        <title>Basic Statistics Calculator</title>
+        <title>Statistics Calculator</title>
         <link rel="stylesheet" type="text/css" href="stats.css">
     </head>
 
     <body>
         <div id='main'>
-
-            <input id='num-input'/>
-            <button id='calculate'>Calculate Statistics</button>
-            <button id='clear'>Clear Pad</button>
-
-            <div id='data' class='pad'>
-
+            <h2>Statistics Calculator</h2>
+            <div id='input'>
+                <p>Enter a set of comma delimited numbers (for example: 2,1,4). The application will
+                then display the mean, median and standard deviation.
+                </p>
+                <input id='num-input'/>
+                <button id='calculate'>Calculate Statistics</button>
+                <button id='clear'>Clear Pad</button>
+             </div>
+            <div id='data'>
             </div>
 
         </div>
 
     <script src='stats.js'> </script>
+
+    <footer id ='footer'>
+        [<a href='test.html'>Run Unit Tests</a> |
+        <a href='https://achongsbiz.github.io/'>Author Info</a>]
+    </footer>
     </body>
 </html>

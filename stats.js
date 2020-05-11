@@ -47,7 +47,7 @@ function flowControl() {
         let median = calcMedian(dataArr);
         let sumDiffFromMean = calcSqDiffFromMean(dataArr, mean);
         let standardDeviation = calcStandardDeviation(sumDiffFromMean, dataArr.length);
-        let resultBlock = createResultElement(mean, median, standardDeviation);
+        let resultBlock = createResultElement(numListInput, mean, median, standardDeviation);
         dataBlock.prepend(resultBlock);
     }
     else {
@@ -100,12 +100,17 @@ function calcStandardDeviation(sumDiffFromMean, sampleSize) {
     return standardDeviation;
 }
 
-function createResultElement(mean, median, standardDeviation) {
+function createResultElement(dataSet, mean, median, standardDeviation) {
 
-    let elements = [mean, median, standardDeviation.sample, standardDeviation.population];
-    let elementsDesc = ['Mean: ', 'Median: ', 'Sample Standard Deviation: ', 'Population Standard Deviation: '];
+    let elements = [ mean, median, standardDeviation.sample, standardDeviation.population];
+    let elementsDesc = [ 'Mean: ', 'Median: ', 'Sample Standard Deviation: ', 'Population Standard Deviation: '];
 
     const resultsBlock = document.createElement('div');
+
+    const data = document.createElement('p');
+    let dataSetStr = 'Data: ' + dataSet.toString();
+    data.innerText = dataSetStr;
+    resultsBlock.appendChild(data);
 
     for (let i=0; i < elements.length; i++) {
 
